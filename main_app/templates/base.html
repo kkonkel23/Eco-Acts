@@ -23,6 +23,18 @@
             <li><a href="{% url 'index' %}">Activities</a></li>
             <li><a href="{% url 'my_activities_index' %}">My Activities</a></li>
         </ul>
+        <ul class="right">
+            <!-- changes below -->
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'facts' %}">Facts</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'index' %}">Activities</a></li>
+            <li><a href="{% url 'my_activities_index' %}">My Activities</a></li>
+              <li><a href="{% url 'logout' %}">Log Out</a></li>
+            {% else %}
+              <li><a href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
+          </ul>
       </div>
     </nav>
   </header>
