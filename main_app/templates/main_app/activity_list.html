@@ -14,10 +14,6 @@
             <p>{{ activity.about }}</p>
             </div>
             <div class="card-action">
-            <form action="{% url 'assoc_activity' activity.id myactivity.id %}" method="post">
-                {% csrf_token %}
-                <button type="submit" class="btn">Add</button>
-            </form>
             </div>
         </div>
         </div>

@@ -3,6 +3,7 @@ from .models import Activity, MyActivity
 from django.views.generic import ListView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def home(request):
@@ -41,9 +42,9 @@ def assoc_activity(request, activity_id, myactivity_id):
   Activity.objects.get(id=activity_id).myactivity.add(myactivity_id)
   return redirect('my_activities_index', activity_id=activity_id)
 
-class ActivityList(ListView):
+class ActivityList(LoginRequiredMixin,ListView):
     model = Activity
 
-class MyActivityList(ListView):
+class MyActivityList(LoginRequiredMixin,ListView):
     model = MyActivity
 
