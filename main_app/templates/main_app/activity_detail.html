@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Activity Details</h1>
+<h1>{{activity.name}}</h1>
+
+<a class="btn" href="{% url 'assoc_activity' activity.id request.user.id %}">Add Activity to My List</a>
+<!-- {% if game in user_fav_games %}
+    <a class="btn" href="{% url 'unassoc_favgame' game.id request.user.id %}">Delete Game from My Favorites</a>
+{% else%}
+{% endif %} -->
 
 {% endblock %}

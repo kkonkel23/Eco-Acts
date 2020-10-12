@@ -34,12 +34,6 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-# def my_activites_index(request, activity_id):
-#     activity = Activity.objects.get(id=activity_id)
-#     activities_user_doesnt_have = Activity.objects.exclude(id__in = activity.myactivity.all().values_list('id'))
-#     return render(request, 'my_activity_index.html', {
-#         'activity': activity, 'activities': activities_user_doesnt_have
-#     })
 
 def user_activities(request, user_id):
   user = User.objects.get(id=user_id)

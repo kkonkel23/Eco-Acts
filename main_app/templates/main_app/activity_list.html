@@ -14,8 +14,9 @@
             <p>{{ activity.about }}</p>
             </div>
             <div class="card-action">
+                <a href='{% url 'detail' activity.id %}'>Details</a>
             </div>
-            <a href='{% url 'detail' activity.id %}'>{{ activity.name }}</a>
+
         </div>
         </div>
     </div>
