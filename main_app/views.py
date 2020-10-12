@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Activity, MyActivity, User, Note
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import DeleteView
+from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -83,4 +83,9 @@ def add_note(request, user_id):
 
 class NoteDelete(DeleteView):
     model = Note
+    success_url = '/activities/'
+
+class NoteUpdate(UpdateView):
+    model = Note
+    fields = ['name', 'content']
     success_url = '/activities/'

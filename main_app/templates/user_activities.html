@@ -12,13 +12,14 @@
           <p>{{ activity.about }}</p>
         </div>
         <div class="card-action">
-            <a class="btn" href="{% url 'unassoc_activity' activity.id request.user.id %}">Delete Activity from My List</a>
+            <a class="btn" href="{% url 'unassoc_activity' activity.id request.user.id %}">Delete Activity</a>
         </div>
       </div>
     </div>
 </div>
 
 {% endfor %}
+<h4>Notes</h4>
 <form action="{% url 'add_note' user.id %}" method="post">
     {% csrf_token %}
     {{ note_form.as_p }}
@@ -34,6 +35,7 @@
             <p>{{ note.content }}</p>
         </div>
         <div class="card-action">
+            <a href="{% url 'note_update' note.id %}">Edit</a>
             <a href="{% url 'delete_note' note.id %}">Delete</a>
         </div>
         </div>
