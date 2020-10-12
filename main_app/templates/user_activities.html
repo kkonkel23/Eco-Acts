@@ -34,7 +34,7 @@
             <p>{{ note.content }}</p>
         </div>
         <div class="card-action">
-            
+            <a href="{% url 'delete_note' note.id %}">Delete</a>
         </div>
         </div>
     </div>

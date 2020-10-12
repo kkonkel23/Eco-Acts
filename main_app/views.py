@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
 from .models import Activity, MyActivity, User, Note
 from django.views.generic import ListView, DetailView
+from django.views.generic.edit import DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from .forms import NoteForm
+
 
 # Create your views here.
 def home(request):
@@ -78,3 +80,7 @@ def add_note(request, user_id):
         new_note.user_id = user_id
         new_note.save()
     return redirect('user_activities', user_id=user_id)
+
+class NoteDelete(DeleteView):
+    model = Note
+    success_url = '/activities/'
