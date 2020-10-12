@@ -30,3 +30,8 @@ class Activity(models.Model):
 class MyActivity(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     my_activities = models.ManyToManyField(Activity)
+
+class Note(models.Model):
+    name = models.CharField(max_length=100)
+    content = models.CharField(max_length=250)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

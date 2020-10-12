@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Activity, MyActivity, User
+from .models import Activity, MyActivity, User, Note
 from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -68,3 +68,11 @@ def activities_detail(request, activity_id):
         'user_activities': user_activities,
     }
     return render(request, 'main_app/activity_detail.html', context)
+
+def add_note(request, user_id):
+    form = NoteForm(request.POST)
+    if form.is_valid():
+        new_note = form.save(commit=False)
+        new_note.user_id = user_id
+        new_note.save()
+    return redirect('user_activities', user_id=user_id)
