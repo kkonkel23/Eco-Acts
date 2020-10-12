@@ -5,6 +5,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from .forms import NoteForm
 
 # Create your views here.
 def home(request):
@@ -42,7 +43,8 @@ def user_activities(request, user_id):
     'user': user,
     'my_activities': my_activities,
   }
-  return render(request, 'user_activities.html', context)
+  note_form = NoteForm()
+  return render(request, 'user_activities.html',{ 'note_form': note_form, 'user': user,'my_activities': my_activities,})
 
 def assoc_activity(request, activity_id, user_id):
     activity = Activity.objects.get(id=activity_id)
