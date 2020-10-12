@@ -13,7 +13,7 @@ def home(request):
 def facts(request):
   return render(request, 'facts.html')
 
-@login_required
+
 def signup(request):
   error_message = ''
   if request.method == 'POST':
@@ -23,6 +23,7 @@ def signup(request):
     if form.is_valid():
       # This will add the user to the database
       user = form.save()
+      MyActivity(user_id = user.id).save()
       # This is how we log a user in via code
       login(request, user)
       return redirect('index')
@@ -59,8 +60,6 @@ def assoc_activity(request, activity_id, user_id):
 class ActivityList(LoginRequiredMixin,ListView):
     model = Activity
 
-class MyActivityList(LoginRequiredMixin,ListView):
-    model = MyActivity
 
 class ActivityDetail(LoginRequiredMixin,DetailView):
     model = Activity
