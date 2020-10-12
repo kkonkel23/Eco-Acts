@@ -12,7 +12,7 @@
           <p>{{ activity.about }}</p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+            <a class="btn" href="{% url 'unassoc_activity' activity.id request.user.id %}">Delete Activity from My List</a>
         </div>
       </div>
     </div>

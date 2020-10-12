@@ -48,12 +48,23 @@ def assoc_activity(request, activity_id, user_id):
     activity = Activity.objects.get(id=activity_id)
     MyActivity.objects.get(user_id=user_id).my_activities.add(activity)
     return redirect('user_activities', user_id)
-#   Activity.objects.get(id=activity_id).user.add(user_id)
-#   return redirect('detail', activity_id=cat_id)
+
+def unassoc_activity(request, activity_id, user_id):
+    activity = Activity.objects.get(id=activity_id)
+    MyActivity.objects.get(user_id=user_id).my_activities.remove(activity)
+    return redirect('user_activities', user_id)
 
 class ActivityList(LoginRequiredMixin,ListView):
     model = Activity
 
-
-class ActivityDetail(LoginRequiredMixin,DetailView):
-    model = Activity
+def activities_detail(request, activity_id):
+    activity = Activity.objects.get(id=activity_id)
+    if request.user.username:
+        user_activities = MyActivity.objects.get(user_id=request.user.id).my_activities.all()
+    else:
+        user_activities = {}
+    context = {
+        'activity': activity,
+        'user_activities': user_activities,
+    }
+    return render(request, 'main_app/activity_detail.html', context)
