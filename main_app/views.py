@@ -16,6 +16,9 @@ def home(request):
 def facts(request):
   return render(request, 'facts.html')
 
+def water_use(request):
+    return render(request, 'water_use.html')
+
 
 def signup(request):
   error_message = ''
@@ -37,7 +40,7 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-
+@login_required
 def user_activities(request, user_id):
   user = User.objects.get(id=user_id)
   my_activities = MyActivity.objects.get(user_id=user_id).my_activities.all()
@@ -48,11 +51,13 @@ def user_activities(request, user_id):
   note_form = NoteForm()
   return render(request, 'user_activities.html',{ 'note_form': note_form, 'user': user,'my_activities': my_activities,})
 
+@login_required
 def assoc_activity(request, activity_id, user_id):
     activity = Activity.objects.get(id=activity_id)
     MyActivity.objects.get(user_id=user_id).my_activities.add(activity)
     return redirect('user_activities', user_id)
 
+@login_required
 def unassoc_activity(request, activity_id, user_id):
     activity = Activity.objects.get(id=activity_id)
     MyActivity.objects.get(user_id=user_id).my_activities.remove(activity)
@@ -61,6 +66,7 @@ def unassoc_activity(request, activity_id, user_id):
 class ActivityList(LoginRequiredMixin,ListView):
     model = Activity
 
+@login_required
 def activities_detail(request, activity_id):
     activity = Activity.objects.get(id=activity_id)
     if request.user.username:
@@ -73,6 +79,7 @@ def activities_detail(request, activity_id):
     }
     return render(request, 'main_app/activity_detail.html', context)
 
+@login_required
 def add_note(request, user_id):
     form = NoteForm(request.POST)
     if form.is_valid():
@@ -81,11 +88,11 @@ def add_note(request, user_id):
         new_note.save()
     return redirect('user_activities', user_id=user_id)
 
-class NoteDelete(DeleteView):
+class NoteDelete(LoginRequiredMixin,DeleteView):
     model = Note
     success_url = '/activities/'
 
-class NoteUpdate(UpdateView):
+class NoteUpdate(LoginRequiredMixin,UpdateView):
     model = Note
     fields = ['name', 'content']
     success_url = '/activities/'
