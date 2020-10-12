@@ -23,7 +23,7 @@
             <li><a href="{% url 'facts' %}">Facts</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'index' %}">Activities</a></li>
-            <li><a href="{% url 'my_activities_index' %}">My Activities</a></li>
+            <li><a href="{% url 'user_activities' user.id %}">My Activities</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
             {% else %}
                 <li><a href="{% url 'signup' %}">Sign Up</a></li>

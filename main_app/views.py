@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from .models import Activity, MyActivity
-from django.views.generic import ListView
+from .models import Activity, MyActivity, User
+from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -12,6 +13,7 @@ def home(request):
 def facts(request):
   return render(request, 'facts.html')
 
+@login_required
 def signup(request):
   error_message = ''
   if request.method == 'POST':
@@ -38,9 +40,21 @@ def signup(request):
 #         'activity': activity, 'activities': activities_user_doesnt_have
 #     })
 
-def assoc_activity(request, activity_id, myactivity_id):
-  Activity.objects.get(id=activity_id).myactivity.add(myactivity_id)
-  return redirect('my_activities_index', activity_id=activity_id)
+def user_activities(request, user_id):
+  user = User.objects.get(id=user_id)
+  my_activities = MyActivity.objects.get(user_id=user_id).my_activities.all()
+  context = {
+    'user': user,
+    'my_activities': my_activities,
+  }
+  return render(request, 'user_activities.html', context)
+
+def assoc_activity(request, activity_id, user_id):
+    activity = Activity.objects.get(id=activity_id)
+    MyActivity.objects.get(user_id=user_id).my_activities.add(activity)
+    return redirect('user_activities', user_id)
+#   Activity.objects.get(id=activity_id).user.add(user_id)
+#   return redirect('detail', activity_id=cat_id)
 
 class ActivityList(LoginRequiredMixin,ListView):
     model = Activity
@@ -48,3 +62,5 @@ class ActivityList(LoginRequiredMixin,ListView):
 class MyActivityList(LoginRequiredMixin,ListView):
     model = MyActivity
 
+class ActivityDetail(LoginRequiredMixin,DetailView):
+    model = Activity
