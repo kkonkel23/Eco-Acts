@@ -13,9 +13,6 @@ from .forms import NoteForm
 def home(request):
   return render(request, 'home.html')
 
-def facts(request):
-  return render(request, 'facts.html')
-
 def blog(request):
     return render(request, 'blog.html')
 

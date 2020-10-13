@@ -20,7 +20,6 @@
         <ul class="right">
             <!-- changes below -->
             <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'facts' %}">Facts</a></li>
             <li><a href="{% url 'blog' %}">Blog</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'index' %}">Activities</a></li>
