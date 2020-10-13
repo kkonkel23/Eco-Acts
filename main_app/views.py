@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Activity, MyActivity, User, Note
+from .models import Activity, MyActivity, User, Note, BlogPost
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.contrib.auth import login
@@ -12,10 +12,6 @@ from .forms import NoteForm
 # Create your views here.
 def home(request):
   return render(request, 'home.html')
-
-def blog(request):
-    return render(request, 'blog.html')
-
 
 def signup(request):
   error_message = ''
@@ -93,3 +89,9 @@ class NoteUpdate(LoginRequiredMixin,UpdateView):
     model = Note
     fields = ['name', 'content']
     success_url = '/activities/'
+
+class BlogPostList(ListView):
+    model = BlogPost
+
+# def blog(request):
+#     return render(request, 'blog.html')
