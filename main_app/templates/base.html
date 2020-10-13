@@ -21,7 +21,7 @@
             <!-- changes below -->
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'facts' %}">Facts</a></li>
-            <li><a href="{% url 'water_use' %}">Water Calculator</a></li>
+            <li><a href="{% url 'blog' %}">Blog</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'index' %}">Activities</a></li>
             <li><a href="{% url 'user_activities' user.id %}">My Activities</a></li>

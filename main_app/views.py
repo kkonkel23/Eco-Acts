@@ -16,8 +16,8 @@ def home(request):
 def facts(request):
   return render(request, 'facts.html')
 
-def water_use(request):
-    return render(request, 'water_use.html')
+def blog(request):
+    return render(request, 'blog.html')
 
 
 def signup(request):
