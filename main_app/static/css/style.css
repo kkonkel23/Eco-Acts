@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.logo-img {
+    height: 50px;
+    width: 140px;
+    margin-top: 7px;
+}
+
+.nav-wrapper {
+    background-color: #365347;
+    color: #F1F1F1;
+}
+
+.nav-link {
+    color: #F1F1F1;
+    font-weight: 900;
+}
+
+.hp-body {
+    background-image: url(https://i.imgur.com/8sDaL0T.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0;
+    height: 100vh;
+}
+
+.hp-container {
+    margin-right: auto;
+    width: 700px
+}
+
+.hp-blurb {
+    font-size: x-large;
+}
+
+.blog-body {
+    display: block;
+    justify-content: center;
+    background-image: url('https://i.imgur.com/YoQKaKx.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 300px;
+    color: black;
+    margin-left: 0px;
+    width: 2000px;
+}

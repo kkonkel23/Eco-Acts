@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="blog-body">
+    <h1>Share your journey with us...</h1>
 
-<h1>Blog</h1>
-
-<a class="btn" href="{% url 'blogpost_create' %}">Add a Post</a>
-
-{% for blogpost in blogpost_list %}
+    
+</div>
+    <a class="btn" href="{% url 'blogpost_create' %}">Add a Post</a>
+    
+    {% for blogpost in blogpost_list %}
     <div class="blogpost">
         <h4>{{ blogpost.title }}</h4>
         <p>Posted: {{ blogpost.post_date }}</p>
         <p>Posted By:{{ blogpost.posted_by }}</p>
         <a class="btn" href='{% url 'blogpost_detail' blogpost.id %}'>See Post</a>
     </div>
-{% endfor %}
+    {% endfor %}
 
 {% endblock %}

@@ -15,19 +15,20 @@
     <nav>
       <div class="nav-wrapper">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Eco-Acts</a></li>
+          <!-- <li><a href="/" class="left brand-logo">&nbsp;&nbsp;<img class="logo-img" src="https://i.imgur.com/ghAkw1q.png" alt="">
+          </a></li> -->
         </ul>
         <ul class="right">
             <!-- changes below -->
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'blog' %}">Blog</a></li>
+            <li><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+            <li><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
             {% if user.is_authenticated %}
-            <li><a href="{% url 'index' %}">Activities</a></li>
-            <li><a href="{% url 'user_activities' user.id %}">My Activities</a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            <li><a class="nav-link" href="{% url 'index' %}">Activities</a></li>
+            <li><a class="nav-link" href="{% url 'user_activities' user.id %}">My Activities</a></li>
+            <li><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
             {% else %}
-                <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                <li><a href="{% url 'login' %}">Log In</a></li>
+                <li><a class="nav-link" href="{% url 'signup' %}">Sign Up</a></li>
+                <li><a class="nav-link" href="{% url 'login' %}">Log In</a></li>
             {% endif %}
           </ul>
       </div>
