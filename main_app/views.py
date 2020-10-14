@@ -59,6 +59,18 @@ def unassoc_activity(request, activity_id, user_id):
 class ActivityList(LoginRequiredMixin,ListView):
     model = Activity
 
+def activities_index(request):
+    activities = Activity.objects.all()
+    if request.user.username:
+        user_activities = MyActivity.objects.get(user_id=request.user.id).my_activities.all()
+    else:
+        user_activities = {}
+    context = {
+        'activities': activities,
+        'user_activities': user_activities,
+    }
+    return render(request, 'main_app/activity_list.html', context)
+
 @login_required
 def activities_detail(request, activity_id):
     activity = Activity.objects.get(id=activity_id)
