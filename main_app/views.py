@@ -93,5 +93,15 @@ class NoteUpdate(LoginRequiredMixin,UpdateView):
 class BlogPostList(ListView):
     model = BlogPost
 
-# def blog(request):
-#     return render(request, 'blog.html')
+class BlogPostCreate(CreateView):
+    model = BlogPost
+    fields = ['title', 'post']
+
+    def form_valid(self, form):
+        form.instance.posted_by = self.request.user 
+        return super().form_valid(form)
+
+def blogpost_detail(request, blogpost_id):
+    blogpost = BlogPost.objects.get(id=blogpost_id)
+    return render(request, 'blogpost_detail.html', { 'blogpost': blogpost })
+

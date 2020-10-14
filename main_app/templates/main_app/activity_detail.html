@@ -2,6 +2,8 @@
 {% block content %}
 
 <h1>{{activity.name}}</h1>
+<h5>CO2 Savings: {{ activity.savings }}</h5>
+<p>{{ activity.about }}</p>
 
 {% if request.user.username %}
     {% if activity in user_activities %}

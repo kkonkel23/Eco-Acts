@@ -3,5 +3,14 @@
 
 <h1>Blog</h1>
 
+<a class="btn" href="{% url 'blogpost_create' %}">Add a Post</a>
+
+{% for blogpost in blogpost_list %}
+    <div class="blogpost">
+        <h4>{{ blogpost.title }}</h4>
+        <p>Posted: {{ blogpost.post_date }}</p>
+        <p>Posted By:{{ blogpost.posted_by }}</p>
+    </div>
+{% endfor %}
 
 {% endblock %}

@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'eco_acts.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'eco_acts',
+        'NAME': 'eco-acts',
     }
 }
 
