@@ -97,6 +97,12 @@ body {
     margin-bottom: 10px;
 }
 
-.savings {
-    
+#card-btn {
+    background-color: #343b47;
+    color: #c4d3e4;
+}
+
+#card-btn:hover {
+    color: #343b47;
+    background-color: #c4d3e4;
 }
