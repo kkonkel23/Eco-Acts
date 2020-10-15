@@ -10,13 +10,12 @@ body {
 }
 
 .nav-wrapper {
-    background-color: white;
-    color: #365347;
+    background-color: #c4d3e4;
 }
 
 .nav-link {
-    color: #365347;
-    font-weight: 900;
+    color: #343b47;
+    font-weight: 600;
 }
 
 .hp-body {
@@ -78,7 +77,7 @@ body {
 }
 
 .activities-card {
-    /* width: 800px; */
+    margin: 10px;
 
 }
 
@@ -105,4 +104,9 @@ body {
 #card-btn:hover {
     color: #343b47;
     background-color: #c4d3e4;
+}
+
+.act-h1 {
+    color: #1e3454;
+    margin-bottom: 50px;
 }
