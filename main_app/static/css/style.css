@@ -55,27 +55,26 @@ body {
 
 .activities-body {
     text-align: center;
-    background-image: url('https://i.imgur.com/1hLT8EC.jpg');
-    color: white;
+    background-image: url('https://i.imgur.com/5zdKzK8.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #c4d3e4;
 }
 
 .activities-div {
-    margin-left: auto;
+    margin-right: auto;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
-    text-align: center;
-    /* grid-template-columns: repeat(4, 4fr); */
-
 }
 
 #card {
     width: 500px;
-    margin: 0;
-}
-
-#card-row {
-    /* width: 800px;
-    margin: 0px; */
+    margin-left: auto;
 }
 
 .activities-card {
@@ -83,11 +82,21 @@ body {
 
 }
 
-.card-content,.card-action {
-    background-color: black;
-
+.card-content {
+    background-color: #c4d3e4;
+    color: #343b47;
+    font-weight: 500;
 }
 
 #bottom-card {
-    background-color: black;
+    background-color: #c4d3e4;
+}
+
+#card-title {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.savings {
+    
 }
