@@ -1,6 +1,7 @@
 body {
     padding: 0;
     margin: 0;
+    text-align: center;
 }
 
 .logo-img {
@@ -52,6 +53,41 @@ body {
     color: black;
     margin-left: 0px;
     width: 100%;
+    font-weight: 900;
+}
+
+.blog-body2 {
+    background-color: #394c5d;
+}
+
+.blog-h1 {
+    font-size: 100px;
+    font-weight: 900;
+}
+
+.blog-div {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#bp-card {
+  
+    width: 400px;
+}
+
+#add-bp {
+    margin: 20px;
+    color: #343b47;
+    background-color: #c4d3e4;
+    font-size: 20px;
+}
+
+#add-bp:hover {
+    background-color: #343b47;
+    color: #c4d3e4;
 }
 
 .activities-body {
@@ -101,14 +137,17 @@ body {
 #card-btn {
     background-color: #343b47;
     color: #c4d3e4;
+    font-weight: 500;
 }
 
 #card-btn:hover {
     color: #343b47;
     background-color: #c4d3e4;
+    font-weight: 500;
 }
 
 .act-h1 {
     color: #1e3454;
     margin-bottom: 50px;
 }
+
