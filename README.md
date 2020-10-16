@@ -1,5 +1,5 @@
 # Eco-Acts
-* Website geared towards helping people keep track of their sustainable activities. As well ass discover new activities that they can take part in and blog about their journies.
+* Website geared towards helping people keep track of their sustainable activities. As well as discover new activities that they can take part in and blog about their journies.
 
 ## Screenshots
 ![](https://i.imgur.com/88YBkst.jpg)
