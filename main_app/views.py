@@ -56,9 +56,7 @@ def unassoc_activity(request, activity_id, user_id):
     MyActivity.objects.get(user_id=user_id).my_activities.remove(activity)
     return redirect('user_activities', user_id)
 
-class ActivityList(LoginRequiredMixin,ListView):
-    model = Activity
-
+@login_required
 def activities_index(request):
     activities = Activity.objects.all()
     if request.user.username:
@@ -102,10 +100,10 @@ class NoteUpdate(LoginRequiredMixin,UpdateView):
     fields = ['name', 'content']
     success_url = '/activities/'
 
-class BlogPostList(ListView):
+class BlogPostList(LoginRequiredMixin,ListView):
     model = BlogPost
 
-class BlogPostCreate(CreateView):
+class BlogPostCreate(LoginRequiredMixin,CreateView):
     model = BlogPost
     fields = ['title', 'post']
 
@@ -113,6 +111,7 @@ class BlogPostCreate(CreateView):
         form.instance.posted_by = self.request.user 
         return super().form_valid(form)
 
+@login_required
 def blogpost_detail(request, blogpost_id):
     blogpost = BlogPost.objects.get(id=blogpost_id)
     return render(request, 'blogpost_detail.html', { 'blogpost': blogpost })
