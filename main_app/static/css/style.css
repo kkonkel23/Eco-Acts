@@ -189,3 +189,25 @@ div#row {
     color: #c4d3e4;
     font-size: 40px;
 }
+
+.h1 {
+    margin-bottom: 50px;
+}
+
+.blog-form {
+    width: 700px;
+    margin: auto;
+}
+
+.bp-body {
+    background-image: url('https://i.imgur.com/pA97L8L.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bp-text {
+    font-size: 50px;
+}

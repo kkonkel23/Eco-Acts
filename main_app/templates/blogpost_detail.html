@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>{{ blogpost.title }}</h1>
-<p>Posted On: {{ blogpost.post_date }}</p>
-<p>Posted By: {{ blogpost.posted_by }}</p>
+<body class="bp-body">
+    <h1>{{ blogpost.title }}</h1>
+    <p>Posted On: {{ blogpost.post_date }}</p>
+    <p>Posted By: {{ blogpost.posted_by }}</p>
+    
+    <p class="bp-text">{{ blogpost.post }}</p>
+    
+</body>
 
-<p>{{ blogpost.post }}</p>
 {% endblock %}

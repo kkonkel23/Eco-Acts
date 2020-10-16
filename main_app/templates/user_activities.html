@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 <body class="user-body">
-    <h1> {{ user.username }}'s Activities</h1>
+    <h1 class="h1"> {{ user.username }}'s Activities</h1>
     <div class="user-container">
         <div class="user-acts">
             {% for activity in my_activities %}
             <div id="row" class="row">
                 <div id="card"  class="col s4">
                 <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
+                    <div class="card-content">
                     <span class="card-title">{{ activity.name }}</span>
                     <p>{{ activity.savings }} lbs/yr</p>
                     <p>{{ activity.about }}</p>
@@ -34,7 +34,7 @@
             <div class="row">
                 <div id="note-card" class="col s12 m6">
                     <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
+                    <div class="card-content">
                         <span class="card-title">{{ note.name }}</span>
                         <p>{{ note.content }}</p>
                     </div>
