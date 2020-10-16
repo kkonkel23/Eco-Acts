@@ -30,7 +30,9 @@ body {
 
 .hp-container {
     margin-right: auto;
-    width: 700px
+    width: 700px;
+    margin-left: 100px;
+    
 }
 
 .hp-blurb {
