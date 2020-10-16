@@ -211,3 +211,24 @@ div#row {
 .bp-text {
     font-size: 50px;
 }
+
+.login {
+    background-image: url('https://i.imgur.com/33pwmqP.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.form {
+    width: 400px;
+    margin: auto;
+}
+
+.sign-form {
+    width: 600px;
+    margin: auto;
+    background-color: #ffffffb4;
+    padding: 30px;
+}

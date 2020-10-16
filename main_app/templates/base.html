@@ -14,15 +14,11 @@
   <header class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <ul>
-          <!-- <li><a href="/" class="left brand-logo">&nbsp;&nbsp;<img class="logo-img" src="https://i.imgur.com/ghAkw1q.png" alt="">
-          </a></li> -->
-        </ul>
         <ul class="right">
             <!-- changes below -->
             <li><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-            <li><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
             {% if user.is_authenticated %}
+            <li><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
             <li><a class="nav-link" href="{% url 'index' %}">Activities</a></li>
             <li><a class="nav-link" href="{% url 'user_activities' user.id %}">My Activities</a></li>
             <li><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
@@ -38,8 +34,5 @@
     {% block content %}
     {% endblock %}
   </main>
-  <!-- <footer class="page-footer">
-    <div class="right">All Rights Reserved, &copy; 2019 Cat Collector &nbsp;</div>
-  </footer> -->
 </body>
 </html>
